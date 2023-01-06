@@ -22,4 +22,7 @@ resetdb:
 test:
 	go test -cover -v ./...
 
+server:
+	go run main.go
+
 .PHONY: postgres createdb dropdb migrateup migratedown resetdb
