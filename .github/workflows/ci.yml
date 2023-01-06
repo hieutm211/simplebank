@@ -13,6 +13,7 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
+          POSTGRES_DB: simple_bank
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
         ports:
