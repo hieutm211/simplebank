@@ -10,8 +10,10 @@ import (
 )
 
 func createRandomAccount(t *testing.T) Account {
+	user := createRandomUser(t)
+
 	arg := CreateAccountParams{
-		Owner:    gofakeit.Name(),
+		Owner:    user.Username,
 		Balance:  int64(gofakeit.Number(1000, 10000)),
 		Currency: gofakeit.CurrencyShort(),
 	}
