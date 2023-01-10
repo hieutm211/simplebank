@@ -25,7 +25,7 @@ func createRandomUser(t *testing.T) User {
 	require.Equal(t, arg.Email, gotUser.Email)
 	require.Equal(t, arg.HashedPassword, gotUser.HashedPassword)
 	require.NotZero(t, gotUser.CreatedAt)
-	require.True(t, gotUser.PasswordChangedAt.Time.IsZero())
+	require.True(t, gotUser.PasswordChangedAt.IsZero())
 
 	return gotUser
 }
@@ -46,5 +46,5 @@ func TestGetUser(t *testing.T) {
 	require.Equal(t, createdUser.Email, gotUser.Email)
 	require.Equal(t, createdUser.HashedPassword, gotUser.HashedPassword)
 	require.NotZero(t, createdUser.CreatedAt, gotUser.CreatedAt)
-	require.True(t, createdUser.PasswordChangedAt.Valid)
+	require.True(t, createdUser.PasswordChangedAt.IsZero())
 }
